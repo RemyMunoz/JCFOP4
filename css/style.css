@@ -1731,3 +1731,116 @@ a:focus {
 .text-gold {
   color: var(--gold);
 }
+
+/* ----- Premium Upgrade Layer ----- */
+:root {
+  --premium-surface: #0f1f33;
+  --premium-surface-2: #132844;
+  --premium-glow: rgba(197, 164, 78, 0.18);
+  --premium-shadow: 0 16px 40px rgba(8, 20, 35, 0.22);
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(197, 164, 78, 0.08), transparent 32%),
+    radial-gradient(circle at 85% 0%, rgba(30, 58, 95, 0.22), transparent 38%),
+    #f3f5f8;
+}
+
+.navbar {
+  background: linear-gradient(110deg, rgba(10, 22, 40, 0.97), rgba(15, 31, 51, 0.93));
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.hero {
+  min-height: 74vh;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(201, 168, 76, 0.26), transparent 40%),
+    linear-gradient(135deg, #071223 0%, #102846 100%);
+}
+
+.hero__content {
+  background: linear-gradient(160deg, rgba(10, 22, 40, 0.64), rgba(10, 22, 40, 0.25));
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 22px;
+  padding: 42px 34px;
+  box-shadow: var(--premium-shadow);
+}
+
+.section,
+.page-header {
+  position: relative;
+}
+
+.page-header {
+  background: linear-gradient(135deg, var(--premium-surface), var(--premium-surface-2));
+  box-shadow: inset 0 -1px 0 rgba(201, 168, 76, 0.25);
+}
+
+.card,
+.quick-link,
+.news-card,
+.board-card,
+.product-card {
+  border: 1px solid rgba(12, 30, 52, 0.08);
+  box-shadow: var(--premium-shadow);
+  border-radius: 14px;
+  background: linear-gradient(170deg, #ffffff, #f8fafc);
+}
+
+.quick-link:hover,
+.card:hover,
+.news-card:hover,
+.board-card:hover,
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 38px rgba(8, 20, 35, 0.2), 0 0 0 1px rgba(197, 164, 78, 0.16);
+}
+
+.btn,
+.hero__cta {
+  border-radius: 999px;
+  letter-spacing: 0.2px;
+}
+
+.btn--gold,
+.hero__cta {
+  box-shadow: 0 10px 24px var(--premium-glow);
+}
+
+.premium-network {
+  background:
+    linear-gradient(160deg, rgba(17, 36, 58, 0.97), rgba(12, 29, 50, 0.95)),
+    radial-gradient(circle at top right, rgba(197, 164, 78, 0.2), transparent 35%);
+}
+
+.premium-network h2,
+.premium-network h3,
+.premium-network p {
+  color: #f6f7f9;
+}
+
+.premium-network .card {
+  background: linear-gradient(170deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(201, 168, 76, 0.24);
+}
+
+.premium-network .card__text {
+  color: #dde4ee;
+}
+
+.footer {
+  background: linear-gradient(135deg, #071427, #0f2239);
+}
+
+@media (max-width: 768px) {
+  .hero__content {
+    padding: 34px 22px;
+    border-radius: 16px;
+  }
+
+  .premium-network .grid--3 {
+    grid-template-columns: 1fr;
+  }
+}

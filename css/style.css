@@ -1891,3 +1891,48 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* ----- Contrast & Readability Fixes ----- */
+/* Keep body copy readable on light card surfaces */
+.card p,
+.card li,
+.quick-link p,
+.news-card__excerpt,
+.board-card p,
+.product-card__desc {
+  color: #2f3a4a;
+}
+
+.link-card-desc {
+  color: #445468;
+}
+
+/* Dark sections use dark cards + light text for proper contrast */
+.wellness-section .card,
+.scholarship-section .card {
+  background: linear-gradient(160deg, rgba(10, 22, 40, 0.86), rgba(18, 40, 68, 0.72));
+  border: 1px solid rgba(201, 168, 76, 0.28);
+}
+
+.wellness-section .card p,
+.scholarship-section .card p,
+.wellness-section .card li,
+.scholarship-section .card li {
+  color: #e6edf7;
+}
+
+/* Fix outline buttons inside dark premium block */
+.premium-network .btn--outline {
+  border-color: var(--badge-gold);
+  color: var(--badge-gold);
+}
+
+.premium-network .btn--outline:hover {
+  background: var(--badge-gold);
+  color: var(--navy);
+}
+
+/* Improve footer readability against dark background */
+.footer__bottom {
+  color: #c8d2df;
+}

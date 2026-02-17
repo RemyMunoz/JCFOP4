@@ -1951,6 +1951,40 @@ body {
   color: #c8d2df;
 }
 
+/* ----- Header Social Row ----- */
+.header-social {
+  background: linear-gradient(120deg, rgba(7, 20, 36, 0.96), rgba(16, 42, 74, 0.95));
+  border-top: 1px solid rgba(201, 168, 76, 0.24);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.24);
+}
+
+.header-social__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 20px;
+}
+
+.header-social__link {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #e6edf7;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(201, 168, 76, 0.28);
+  font-size: 0.95rem;
+}
+
+.header-social__link:hover {
+  color: var(--badge-gold);
+  border-color: var(--badge-gold);
+  transform: translateY(-1px);
+}
+
 /* ----- Homepage Upgrade Modules ----- */
 .quick-actions {
   background: linear-gradient(120deg, rgba(7, 20, 36, 0.96), rgba(16, 42, 74, 0.95));

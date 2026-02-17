@@ -1755,17 +1755,55 @@ body {
 
 .hero {
   min-height: 74vh;
+  background: #071223;
+  isolation: isolate;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   background:
-    radial-gradient(circle at 20% 20%, rgba(201, 168, 76, 0.26), transparent 40%),
-    linear-gradient(135deg, #071223 0%, #102846 100%);
+    linear-gradient(112deg, rgba(7, 18, 35, 0.86) 10%, rgba(7, 18, 35, 0.52) 52%, rgba(7, 18, 35, 0.86) 100%),
+    radial-gradient(circle at 50% 8%, rgba(201, 168, 76, 0.2), rgba(7, 18, 35, 0) 40%),
+    url(../images/hero-bg.webp) center 42% / cover no-repeat;
+  filter: saturate(108%) contrast(102%);
+  transform: scale(1.03);
+  transform-origin: center;
+  animation: heroDrift 18s ease-in-out infinite alternate;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(180deg, rgba(7, 18, 35, 0.05) 0%, rgba(7, 18, 35, 0.55) 100%),
+    repeating-linear-gradient(120deg, rgba(201, 168, 76, 0.05) 0 2px, transparent 2px 72px);
+  mix-blend-mode: normal;
+  pointer-events: none;
 }
 
 .hero__content {
-  background: linear-gradient(160deg, rgba(10, 22, 40, 0.64), rgba(10, 22, 40, 0.25));
-  border: 1px solid rgba(201, 168, 76, 0.25);
+  position: relative;
+  z-index: 4;
+  background: linear-gradient(160deg, rgba(10, 22, 40, 0.78), rgba(10, 22, 40, 0.42));
+  border: 1px solid rgba(201, 168, 76, 0.34);
   border-radius: 22px;
   padding: 42px 34px;
   box-shadow: var(--premium-shadow);
+  backdrop-filter: blur(4px);
+}
+
+@keyframes heroDrift {
+  from {
+    transform: scale(1.03) translateX(-0.6%);
+  }
+  to {
+    transform: scale(1.08) translateX(0.6%);
+  }
 }
 
 .section,
@@ -1835,6 +1873,15 @@ body {
 }
 
 @media (max-width: 768px) {
+  .hero::before {
+    background-position: 56% 40%;
+    animation-duration: 22s;
+  }
+
+  .hero::after {
+    background: linear-gradient(180deg, rgba(7, 18, 35, 0.3) 0%, rgba(7, 18, 35, 0.72) 100%);
+  }
+
   .hero__content {
     padding: 34px 22px;
     border-radius: 16px;

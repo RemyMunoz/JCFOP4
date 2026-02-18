@@ -67,8 +67,8 @@
         <a href="member-benefits.html" class="navbar__link">Benefits</a>
         <a href="memorial.html" class="navbar__link">Memorial</a>
         <a href="merchandise.html" class="navbar__link">Merchandise</a>
-        
         <a href="links.html" class="navbar__link">Links</a>
+        <button onclick="toggleContact()" class="navbar__link" style="background:none;border:none;cursor:pointer;font:inherit;">Contact</button>
         <a href="associates.html" class="btn btn--gold btn--small">Join / Become a Member</a>
       </div>
     </div>
@@ -80,6 +80,7 @@
       <a href="https://www.instagram.com/jcfop4/?hl=en" target="_blank" rel="noopener noreferrer" class="header-social__link" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
       <a href="https://x.com/jcfop4?s=21&t=HVIoJXDsAE-A3QT6dLDx9w" target="_blank" rel="noopener noreferrer" class="header-social__link" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
       <a href="https://www.facebook.com/share/17cpXgj79E/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="header-social__link" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+      <button class="header-social__link" aria-label="Search" onclick="toggleSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
   </section>
 
@@ -400,6 +401,154 @@
     </div>
   </footer>
 
+  <!-- Search Modal -->
+  <div id="searchModal" class="search-modal" style="display: none;">
+    <div class="search-modal__content">
+      <span class="search-modal__close" onclick="toggleSearch()">&times;</span>
+      <h2 class="search-modal__title">🔍 Search Website</h2>
+      <input type="text" id="searchInput" class="search-modal__input" placeholder="Search for pages, news, events..." onkeyup="searchSite()">
+      <div id="searchResults" class="search-modal__results"></div>
+    </div>
+  </div>
+
+  <!-- Contact Form Modal -->
+  <div id="contactModal" class="search-modal" style="display: none;">
+    <div class="search-modal__content">
+      <span class="search-modal__close" onclick="toggleContact()">&times;</span>
+      <h2 class="search-modal__title">📬 Contact Lodge #4</h2>
+      <form id="contactForm" class="contact-form" onsubmit="submitContact(event)">
+        <div class="contact-form__group">
+          <label for="contactName" class="contact-form__label">Your Name *</label>
+          <input type="text" id="contactName" name="name" class="contact-form__input" required>
+        </div>
+        <div class="contact-form__group">
+          <label for="contactEmail" class="contact-form__label">Email *</label>
+          <input type="email" id="contactEmail" name="email" class="contact-form__input" required>
+        </div>
+        <div class="contact-form__group">
+          <label for="contactSubject" class="contact-form__label">Subject</label>
+          <select id="contactSubject" name="subject" class="contact-form__input">
+            <option value="">Select a topic...</option>
+            <option value="membership">Membership Inquiry</option>
+            <option value="benefits">Benefits Question</option>
+            <option value="event">Event Inquiry</option>
+            <option value="media">Media/Press</option>
+            <option value="general">General Question</option>
+          </select>
+        </div>
+        <div class="contact-form__group">
+          <label for="contactMessage" class="contact-form__label">Message *</label>
+          <textarea id="contactMessage" name="message" class="contact-form__textarea" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn contact-form__submit">Send Message</button>
+      </form>
+      <div id="contactSuccess" class="contact-form__success" style="display: none;">
+        <h3>✅ Message Sent!</h3>
+        <p>Thank you for contacting Lodge #4. We'll get back to you soon.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" onclick="scrollToTop()" style="display: none;">↑ Top</button>
+
   <script src="js/script.js"></script>
+  <script>
+    // Search functionality
+    const sitePages = [
+      {title: 'Home', url: 'index.html', keywords: 'main page'},
+      {title: 'About', url: 'about.html', keywords: 'who we are'},
+      {title: 'Meetings', url: 'meetings.html', keywords: 'monthly schedule'},
+      {title: 'News', url: 'news.html', keywords: 'updates alerts'},
+      {title: 'Resources', url: 'resources.html', keywords: 'links forms'},
+      {title: 'Benefits', url: 'member-benefits.html', keywords: 'insurance perks'},
+      {title: 'Memorial', url: 'memorial.html', keywords: 'fallen officers'},
+      {title: 'Merchandise', url: 'merchandise.html', keywords: 'shop store'},
+      {title: 'Links', url: 'links.html', keywords: 'partners'},
+      {title: 'Join', url: 'associates.html', keywords: 'membership apply'},
+      {title: 'Executive Board', url: 'executive-board.html', keywords: 'leadership'},
+      {title: 'President\'s Message', url: 'presidents-message.html', keywords: 'leader'},
+      {title: 'Scholarship', url: 'news.html', keywords: 'education funding'},
+      {title: 'FOP License Plates', url: '#fop-license-plates', keywords: 'plates tags'},
+    ];
+
+    function toggleSearch() {
+      const modal = document.getElementById('searchModal');
+      modal.style.display = modal.style.display === 'none' ? 'flex' : 'none';
+      if (modal.style.display === 'flex') {
+        document.getElementById('searchInput').focus();
+      }
+    }
+
+    function searchSite() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const results = document.getElementById('searchResults');
+      if (query.length < 2) {
+        results.innerHTML = '';
+        return;
+      }
+      const matches = sitePages.filter(page => 
+        page.title.toLowerCase().includes(query) || 
+        page.keywords.toLowerCase().includes(query)
+      );
+      if (matches.length === 0) {
+        results.innerHTML = '<p class="search-modal__no-results">No results found</p>';
+      } else {
+        results.innerHTML = matches.map(page => 
+          '<a href="' + page.url + '" class="search-modal__result">' + page.title + '</a>'
+        ).join('');
+      }
+    }
+
+    function toggleContact() {
+      const modal = document.getElementById('contactModal');
+      modal.style.display = modal.style.display === 'none' ? 'flex' : 'none';
+    }
+
+    function submitContact(e) {
+      e.preventDefault();
+      const name = document.getElementById('contactName').value;
+      const email = document.getElementById('contactEmail').value;
+      const subject = document.getElementById('contactSubject').value;
+      const message = document.getElementById('contactMessage').value;
+      
+      // In production, this would send to a backend
+      // For now, show success and log
+      console.log('Contact form submitted:', {name, email, subject, message});
+      
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('contactSuccess').style.display = 'block';
+      
+      // Reset form after 5 seconds
+      setTimeout(() => {
+        document.getElementById('contactForm').style.display = 'block';
+        document.getElementById('contactSuccess').style.display = 'none';
+        document.getElementById('contactForm').reset();
+        toggleContact();
+      }, 5000);
+    }
+
+    // Back to top button
+    window.onscroll = function() {
+      const btn = document.getElementById('backToTop');
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        btn.style.display = 'block';
+      } else {
+        btn.style.display = 'none';
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    // Lazy loading for images
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        img.setAttribute('loading', 'lazy');
+      });
+    });
+  </script>
 </body>
 </html>

@@ -2101,3 +2101,163 @@ body {
   outline: 3px solid var(--badge-gold);
   outline-offset: 2px;
 }
+
+/* ----- Search Modal ----- */
+.search-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 22, 40, 0.95);
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 100px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.search-modal__content {
+  background: var(--navy);
+  border: 1px solid var(--badge-gold);
+  border-radius: 12px;
+  padding: 30px;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+}
+
+.search-modal__close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 30px;
+  color: var(--gray-medium);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.search-modal__close:hover {
+  color: var(--badge-gold);
+}
+
+.search-modal__title {
+  color: var(--badge-gold);
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.search-modal__input {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1rem;
+  border: 2px solid var(--police-blue);
+  border-radius: 8px;
+  background: var(--charcoal);
+  color: var(--white);
+}
+
+.search-modal__input:focus {
+  outline: none;
+  border-color: var(--badge-gold);
+}
+
+.search-modal__results {
+  margin-top: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.search-modal__result {
+  display: block;
+  padding: 12px 15px;
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  transition: background 0.2s;
+}
+
+.search-modal__result:hover {
+  background: var(--police-blue);
+}
+
+.search-modal__no-results {
+  color: var(--gray-medium);
+  text-align: center;
+  padding: 20px;
+}
+
+/* ----- Contact Form ----- */
+.contact-form__group {
+  margin-bottom: 20px;
+}
+
+.contact-form__label {
+  display: block;
+  color: var(--white);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.contact-form__input,
+.contact-form__textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid var(--police-blue);
+  border-radius: 8px;
+  background: var(--charcoal);
+  color: var(--white);
+}
+
+.contact-form__input:focus,
+.contact-form__textarea:focus {
+  outline: none;
+  border-color: var(--badge-gold);
+}
+
+.contact-form__submit {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1rem;
+}
+
+.contact-form__success {
+  text-align: center;
+  padding: 30px;
+  color: var(--white);
+}
+
+.contact-form__success h3 {
+  color: var(--badge-gold);
+  margin-bottom: 10px;
+}
+
+/* ----- Back to Top Button ----- */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--badge-gold);
+  color: var(--navy);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 15px rgba(201, 168, 76, 0.3);
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(201, 168, 76, 0.5);
+}

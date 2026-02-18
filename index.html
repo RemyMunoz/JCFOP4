@@ -69,7 +69,7 @@
         <a href="merchandise.html" class="navbar__link">Merchandise</a>
         <a href="links.html" class="navbar__link">Links</a>
         <button onclick="toggleContact()" class="navbar__link" style="background:none;border:none;cursor:pointer;font:inherit;">Contact</button>
-        <a href="associates.html" class="btn btn--gold btn--small">Join / Become a Member</a>
+        <a href="join.html" class="btn btn--gold btn--small">Join / Become a Member</a>
       </div>
     </div>
   </nav>
@@ -81,6 +81,23 @@
       <a href="https://x.com/jcfop4?s=21&t=HVIoJXDsAE-A3QT6dLDx9w" target="_blank" rel="noopener noreferrer" class="header-social__link" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
       <a href="https://www.facebook.com/share/17cpXgj79E/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="header-social__link" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
       <button class="header-social__link" aria-label="Search" onclick="toggleSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+  </section>
+
+  <section class="alerts-strip" aria-label="Urgent member alerts">
+    <div class="container alerts-strip__wrap">
+      <a href="news.html" class="alerts-strip__item">
+        <span class="alerts-strip__badge alerts-strip__badge--danger">Action Needed</span>
+        <span>Legislative outreach may be requested this month</span>
+      </a>
+      <a href="news.html" class="alerts-strip__item">
+        <span class="alerts-strip__badge alerts-strip__badge--deadline">Deadline</span>
+        <span>2026 Scholarship deadline is April 3, 2026</span>
+      </a>
+      <a href="meetings.html" class="alerts-strip__item">
+        <span class="alerts-strip__badge">Event</span>
+        <span>Next General Membership Meeting: March 5, 2026</span>
+      </a>
     </div>
   </section>
 
@@ -156,6 +173,37 @@
           <h3 class="card__title">Follow Lodge #4 Updates</h3>
           <p class="card__text">Get rapid announcements, event reminders, and community highlights by following Lodge #4 on social platforms.</p>
           <a href="links.html" class="btn btn--outline mt-20">Open All Links</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="thin-line"></div>
+
+  <section class="section member-portal">
+    <div class="container">
+      <div class="section-header">
+        <h2>Member Portal</h2>
+      </div>
+      <p class="text-center centered-desc mb-40">A single place for members to get forms, monthly updates, and high-priority support links.</p>
+      <div class="grid grid--3">
+        <article class="card portal-card">
+          <p class="portal-card__kicker">Forms & Documents</p>
+          <h3 class="card__title">Applications & Official PDFs</h3>
+          <p class="card__text">Open scholarship forms, license plate packets, and key lodge documents without searching multiple pages.</p>
+          <a href="join.html" class="btn btn--outline mt-20">Open Join Checklist</a>
+        </article>
+        <article class="card portal-card">
+          <p class="portal-card__kicker">Member Updates</p>
+          <h3 class="card__title">Alerts, Meetings, and News</h3>
+          <p class="card__text">Stay current with monthly meetings, legislative alerts, and important lodge-wide announcements.</p>
+          <a href="news.html" class="btn btn--outline mt-20">Open Member Updates</a>
+        </article>
+        <article class="card portal-card">
+          <p class="portal-card__kicker">Support Access</p>
+          <h3 class="card__title">Wellness & Critical Contacts</h3>
+          <p class="card__text">Direct access to Cop2Cop support lines, JCPD resources, and official Lodge contact channels.</p>
+          <a href="resources.html" class="btn btn--outline mt-20">Open Support Resources</a>
         </article>
       </div>
     </div>
@@ -378,7 +426,7 @@
           <a href="meetings.html" class="footer__link">Meeting Schedule</a>
           <a href="resources.html" class="footer__link">Resources</a>
           <a href="executive-board.html" class="footer__link">Board Members</a>
-          <a href="associates.html" class="footer__link">Associate Membership</a>
+          <a href="join.html" class="footer__link">Join / Membership</a>
         </div>
         
         <div>
@@ -457,7 +505,7 @@
     // Search functionality
     const sitePages = [
       {title: 'Home', url: 'index.html', keywords: 'main page'},
-      {title: 'About', url: 'about.html', keywords: 'who we are'},
+      {title: 'About', url: 'presidents-message.html', keywords: 'who we are'},
       {title: 'Meetings', url: 'meetings.html', keywords: 'monthly schedule'},
       {title: 'News', url: 'news.html', keywords: 'updates alerts'},
       {title: 'Resources', url: 'resources.html', keywords: 'links forms'},
@@ -465,7 +513,7 @@
       {title: 'Memorial', url: 'memorial.html', keywords: 'fallen officers'},
       {title: 'Merchandise', url: 'merchandise.html', keywords: 'shop store'},
       {title: 'Links', url: 'links.html', keywords: 'partners'},
-      {title: 'Join', url: 'associates.html', keywords: 'membership apply'},
+      {title: 'Join', url: 'join.html', keywords: 'membership apply'},
       {title: 'Executive Board', url: 'executive-board.html', keywords: 'leadership'},
       {title: 'President\'s Message', url: 'presidents-message.html', keywords: 'leader'},
       {title: 'Scholarship', url: 'news.html', keywords: 'education funding'},

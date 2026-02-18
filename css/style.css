@@ -2077,6 +2077,162 @@ body {
   }
 }
 
+/* ----- Modern Animations ----- */
+
+/* Hero Badge Shimmer Effect */
+.hero__logo {
+  animation: heroLogoFadeIn 1.2s ease-out forwards, heroLogoShimmer 3s ease-in-out 1.2s infinite;
+  opacity: 0;
+}
+
+@keyframes heroLogoFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes heroLogoShimmer {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(201, 168, 76, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(201, 168, 76, 0.6));
+  }
+}
+
+/* Card Stagger Reveal Animation */
+.card,
+.update-card,
+.news-card,
+.board-card,
+.product-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardReveal 0.6s ease-out forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+.card:nth-child(6) { animation-delay: 0.6s; }
+
+.update-card:nth-child(1) { animation-delay: 0.1s; }
+.update-card:nth-child(2) { animation-delay: 0.2s; }
+.update-card:nth-child(3) { animation-delay: 0.3s; }
+
+.news-card:nth-child(1) { animation-delay: 0.1s; }
+.news-card:nth-child(2) { animation-delay: 0.2s; }
+.news-card:nth-child(3) { animation-delay: 0.3s; }
+.news-card:nth-child(4) { animation-delay: 0.4s; }
+.news-card:nth-child(5) { animation-delay: 0.5s; }
+.news-card:nth-child(6) { animation-delay: 0.6s; }
+
+.event-grid .card:nth-child(1) { animation-delay: 0.1s; }
+.event-grid .card:nth-child(2) { animation-delay: 0.2s; }
+.event-grid .card:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* District Map Pulsing Pins */
+.district-item {
+  position: relative;
+}
+
+.district-item::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background: var(--badge-gold);
+  border-radius: 50%;
+  animation: districtPinPulse 2s ease-in-out infinite;
+}
+
+.district-item:nth-child(1)::before { animation-delay: 0s; }
+.district-item:nth-child(2)::before { animation-delay: 0.5s; }
+.district-item:nth-child(3)::before { animation-delay: 1s; }
+.district-item:nth-child(4)::before { animation-delay: 1.5s; }
+
+@keyframes districtPinPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(201, 168, 76, 0);
+  }
+}
+
+/* Section Fade In */
+.section,
+.section-header {
+  opacity: 0;
+  animation: sectionFadeIn 0.8s ease-out forwards;
+}
+
+@keyframes sectionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Quick Links Stagger */
+.quick-link {
+  opacity: 0;
+  transform: translateX(-10px);
+  animation: quickLinkReveal 0.4s ease-out forwards;
+}
+
+.quick-link:nth-child(1) { animation-delay: 0.05s; }
+.quick-link:nth-child(2) { animation-delay: 0.1s; }
+.quick-link:nth-child(3) { animation-delay: 0.15s; }
+.quick-link:nth-child(4) { animation-delay: 0.2s; }
+.quick-link:nth-child(5) { animation-delay: 0.25s; }
+.quick-link:nth-child(6) { animation-delay: 0.3s; }
+.quick-link:nth-child(7) { animation-delay: 0.35s; }
+
+@keyframes quickLinkReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hover Lift Enhancement */
+.card:hover,
+.update-card:hover,
+.news-card:hover {
+  transform: translateY(-8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 /* ----- Accessibility: Reduced Motion ----- */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -2086,6 +2242,19 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  
+  .card,
+  .update-card,
+  .news-card,
+  .board-card,
+  .product-card,
+  .section,
+  .section-header,
+  .quick-link {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
   }
 }
 
